@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto Connect to MetaMask</title>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <div id="content" style="display: none;">
+        <h1>Ultimatron</h1>
+        <div class="admin-panel clearfix">
+            <div class="slidebar">
+                <div class="logo">
+                <a href=""></a>
+                </div>
+                <ul>
+                <li><a href="#dashboard" id="targeted">Main</a></li>
+                <li><a href="#challenge">Challenge</a></li>
+                <li><a href="#theory">Theory</a></li>
+                <li><a href="#blog">Blog</a></li>
+                <li><a href="#extra">extra</a></li>
+                </ul>
+            </div>
+            <div class="main">
+                <div class="mainContent clearfix">
+                <div id="dashboard">
+                    <h2 class="header"><span class="icon"></span>Dashboard</h2>
+                    <div class="monitor">
+                        <h4>Right Now</h4>
+                        <div class="clearfix">
+                        <ul class="content">
+                            <li>content</li>
+                            <li class="challenge"><span class="count">179</span><a href="">Challenges</a></li>
+                            <li class="blog"><span class="count">13</span><a href="">Blogs</a></li>
+                            <li class="categories"><span class="count">21</span><a href="">categories</a></li>
+                            <li class="tags"><span class="count">305</span><a href="">tags</a></li>
+                        </ul>
+                        <ul class="discussions">
+                            <li>discussions</li>
+                            <li class="comments"><span class="count">353</span><a href="">comments</a></li>
+                            <li class="approved"><span class="count">319</span><a href="">approved</a></li>
+                            <li class="pending"><span class="count">0</span><a href="">pending</a></li>
+                            <li class="spam"><span class="count">34</span><a href="">spam</a></li>
+                        </ul>
+                        </div>
+                        <p>Theme <a href="">Twenty Eleven</a> with <a href="">3 widgets</a></p>
+                    </div>
+                    <div class="quick-press">
+                        <h4>Quick Press</h4>
+                        <form action="" method="post">
+                        <input type="text" name="title" placeholder="Title"/>
+                        <input type="text" name="content" placeholder="Content"/>
+                        <input type="text" name="tags" placeholder="Tags"/>
+                        <button type="button" class="save">l</button>
+                        <button type="button" class="delet">m</button>
+                        <button type="submit" class="submit" name="submit">Publish</button>
+                        </form>
+                    </div>
+                    </div>
+                    <div id="challenge">
+                    <h2 class="header">Challenges</h2>
+                    </div>
+                    <div id="theory">
+                    <h2 class="header">Theory</h2>
+                    </div>
+                    <div id="blog">
+                    <h2 class="header">Blog</h2>
+                    </div>
+                    <div id="extra">
+                    <h2 class="header">extra</h2>
+                    </div>
+                </div>
+                </div>
+            </div>
+    </div>
+
+    
+    
+    <script>
+        async function checkMetaMaskConnection() {
+            try {
+                await window.ethereum.request({ method: 'eth_requestAccounts' });
+                document.getElementById('content').style.display = 'block';
+            } catch (error) {
+                console.error(error);
+                document.getElementById('content').style.display = 'none';
+                setTimeout(checkMetaMaskConnection, 500);
+            }
+        }
+
+        function continuousCheck() {
+            setInterval(checkMetaMaskConnection, 500);
+        }
+
+        if (typeof window.ethereum !== 'undefined') {
+            checkMetaMaskConnection();
+            continuousCheck();
+        } else {
+            document.querySelector('h1').textContent = 'MetaMask is not installed. Please install MetaMask to use this website.';
+        }
+    </script>
+    <script src="main.js"></script>
+</body>
+</html>
