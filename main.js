@@ -47,6 +47,60 @@ function expandCard(cardNumber) {
     }
 }
 
+function expandCardtheory(cardNumbertheory) {
+    // Get the expanded card element
+    const cardInfotheory = document.getElementById('card-infotheory');
+
+    // Display the expanded card information
+    cardInfotheory.style.display = 'block';
+
+    // Show the respective part based on the card number
+    switch (cardNumbertheory) {
+        case 1:
+            displayCardInfo(1);
+            break;
+        case 2:
+            displayCardInfo(2);
+            break;
+        case 3:
+            displayCardInfo(3);
+            break;
+        case 4:
+            displayCardInfo(4);
+            break;
+        default:
+            break;
+    }
+}
+
+
+
+function expandCard(cardNumber) {
+    // Get the expanded card element
+    const cardInfo = document.getElementById('card-info');
+
+    // Display the expanded card information
+    cardInfo.style.display = 'block';
+
+    // Show the respective part based on the card number
+    switch (cardNumber) {
+        case 1:
+            displayCardInfo(1);
+            break;
+        case 2:
+            displayCardInfo(2);
+            break;
+        case 3:
+            displayCardInfo(3);
+            break;
+        case 4:
+            displayCardInfo(4);
+            break;
+        default:
+            break;
+    }
+}
+
 // JavaScript in your main.js file
 function displayCardInfo(cardNumber) {
     const cardInfo = document.getElementById('card-info');
@@ -57,13 +111,7 @@ function displayCardInfo(cardNumber) {
         case 1:
             metamaskAddress = '0xF5D28D25f578b1E1dc6e5132f26338Eac5E08D2f';
             title = "Ex. Challenge: The Crypto Study: 30 Days Without Music";
-            content = `For the next 30 days, immerse yourself in the world of cryptocurrencies without
-            the comforting embrace of your favorite tunes. That means no music during study sessions,
-            research, or even while tracking your crypto portfolio. The goal is to create an environment of
-            absolute focus on your crypto education. While the Crypto Study Challenge may seem daunting, the rewards of enhanced crypto
-            knowledge and improved discipline can be immensely gratifying. Remember, it's only 30 days,
-            and at the end of the challenge, you'll emerge as a more focused and knowledgeable crypto
-            enthusiast, ready to tackle the dynamic world of cryptocurrencies with newfound expertise.`;
+            content = `For the next 30 days, immerse yourself in the world of cryptocurrencies without the comforting embrace of your favorite tunes. That means no music during study sessions, research, or even while tracking your crypto portfolio. The goal is to create an environment of absolute focus on your crypto education. While the Crypto Study Challenge may seem daunting, the rewards of enhanced crypto knowledge and improved discipline can be immensely gratifying. Remember, it's only 30 days, and at the end of the challenge, you'll emerge as a more focused and knowledgeable crypto enthusiast, ready to tackle the dynamic world of cryptocurrencies with newfound expertise.`;
             boostButtonText = 'Boost 1';
             break;
         case 2:
@@ -93,3 +141,68 @@ function displayCardInfo(cardNumber) {
     cardInfo.querySelector('.content-paragraph').textContent = content;
     cardInfo.querySelector('.boost-button').textContent = boostButtonText;
 }
+
+const sendBTTButton = document.querySelector('.sendBTTButton');
+		
+		let accounts = [];
+		
+		if (typeof window.ethereum !== 'undefined') {
+			ethereum
+				.request({ method: 'eth_requestAccounts' })
+				.then((acc) => {
+					accounts = acc;
+				})
+				.catch((error) => {
+					console.error(error);
+				});
+		}
+		
+		sendBTTButton.addEventListener('click', () => {
+			const donationAmount = 9990; 
+			if (typeof window.ethereum !== 'undefined') {
+				ethereum
+					.request({
+						method: 'eth_sendTransaction',
+						params: [
+							{
+								from: accounts[0],
+								to: '0x5B9D89C4584C8Ebcd544aa40206d5e9a1055C855',
+								value: `0x${(donationAmount * 1000000000000000000).toString(16)}`,
+								chainId: '0x9A'
+							}
+						]
+					})
+					.then((txHash) => console.log(txHash))
+					.catch((error) => console.error(error));
+			}
+		});
+
+
+function toggleTag(tagElement) {
+    tagElement.classList.toggle('selected');
+}
+
+// JavaScript to reset the form and show success message
+document.getElementById('content-form').addEventListener('submit', function (event) {
+    event.preventDefault(); // Prevent form submission
+    // Reset the form
+    this.reset();
+    // Reset tag selection
+    const tags = document.querySelectorAll('.tag');
+    tags.forEach(tag => {
+        tag.classList.remove('selected');
+    });
+    // Show success message
+    document.getElementById('publish-success').style.display = 'block';
+    setTimeout(function () {
+        document.getElementById('publish-success').style.display = 'none';
+    }, 3000); // Hide the message after 3 seconds
+});
+
+// Add click event listeners to tags
+const tags = document.querySelectorAll('.tag');
+tags.forEach(tag => {
+    tag.addEventListener('click', function () {
+        toggleTag(this);
+    });
+});
