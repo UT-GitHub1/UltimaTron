@@ -5,14 +5,59 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Auto Connect to MetaMask</title>
     <link rel="stylesheet" href="main.css">
+    <style>
+                /* Styles for screens smaller than 768px (typical mobile devices) */
+        @media (max-width: 768px) {
+            .admin-panel {
+                width: 100%;
+                margin: 0;
+            }
+            
+            .slidebar {
+                width: 100%;
+                border-right: none;
+                float: none;
+                background-color: transparent;
+            }
+            
+            .slidebar ul {
+                text-align: center;
+            }
+            
+            .slidebar li:before {
+                right: 10px;
+            }
+            
+            .main {
+                width: 100%;
+            }
+            
+            /* Add additional responsive styles here */
+            
+            /* Adjust the card size for mobile */
+            .card {
+                width: 100%;
+                margin: 10px 0;
+            }
+            
+            /* Add responsive styles for other elements as needed */
+        }
+
+        /* Styles for screens larger than 768px (typical PCs and tablets) */
+        @media (min-width: 769px) {
+            /* Add styles for larger screens here */
+        }
+
+
+    </style>
 </head>
 <body>
     <div id="content" style="display: none;">
         <h1>Ultimatron</h1>
         <div class="admin-panel clearfix">
             <div class="slidebar">
-                <div class="logo">
-                <a href="https://ut-github1.github.io/UltimaTron/"></a>
+                <div class="logo" >
+                <a href="https://ut-github1.github.io/UltimaTron/" style="background-image: url('UltimaTRON-logos/UltimaTRON-logos.jpeg');"></a>
                 </div>
                 <ul>
                 <li><a href="#dashboard" id="targeted">Main</a></li>
@@ -32,113 +77,84 @@
                         <ul class="content">
                             <li>content</li>
                             <li class="challenge"><span class="count">4</span><a href="">Challenges</a></li>
-                            <li class="blog"><span class="count">3</span><a href="">Blogs</a></li>
-                            <li class="categories"><span class="count">3</span><a href="">Theories</a></li>
-                            <li class="tags"><span class="count">8</span><a href="">waiting for approval</a></li>
+                            <li class="blog"><span class="count">0</span><a href="">Blogs</a></li>
+                            <li class="categories"><span class="count">0</span><a href="">Theories</a></li>
+                            <li class="tags"><span class="count">8</span><a href="">on_stand_by</a></li>
                         </ul>
                         </div>
                         <p>Project: <a href="https://ut-github1.github.io/UltimaTron/">UltimaTron</a> in <a href="https://forum.trondao.org/t/ultimatron-create-content-collect-upvotes-challenges-theories-blogs/20899">TRON</a></p>
                     </div>
-                    <div class="quick-press">
-                        <h4>Share</h4>
-                        <form action="" method="post">
-                        <input type="text" name="title" placeholder="Title"/>
-                        <input type="textarea" name="content" placeholder="Content"/>
-                        <input type="text" name="tags" placeholder="Tags"/>
-                        <button type="submit" class="submit" name="submit">Publish</button>
+                    <div class="content-form">
+                        <h2>Publish Content</h2>
+                        <form action="#" method="post" id="content-form">
+                            <label for="title">Title:</label>
+                            <input type="text" name="title" id="title" placeholder="Enter a title" required>
+                
+                            <label for="content">Content:</label>
+                            <textarea name="content" id="content" rows="6" placeholder="Write your content here" required></textarea>
+                
+                            <label>Tags:</label>
+                            <div class="tag-list" id="tags">
+                                <span class="tag" data-tag="Challenge">Challenge</span>
+                                <span class="tag" data-tag="Theory">Theory</span>
+                                <span class="tag" data-tag="Blog">Blog</span>
+                                <span class="tag" data-tag="Other">Other</span>
+                            </div>
+                
+                            <button type="submit" class="submit" name="submit">Publish</button>
                         </form>
+                        <p id="publish-success" style="display: none;">Content has been published successfully!</p>
                     </div>
                     </div>
+
+
                     <div id="challenge">
                     <h2 class="header">Challenges</h2>
-                    
                         <div class="challenge-cards">
                             <div class="card" onclick="expandCard(1)">
                                 <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Ch.1</h3>
                                 </div>
                             </div>
                             <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
                                 <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Ch.2</h3>
                                 </div>
                             </div>
                             <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
                                 <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Ch.3</h3>
                                 </div>
                             </div>
                             <div class="card" style="background-image: url('img/ai.jpg');" onclick="expandCard(4)">
                                 <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 4</h3>
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Ch.4</h3>
                                 </div>
                             </div>
                         </div>
-                        
                         <div class="card-info" id="card-info">
                             <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
                             <h4 class="content-title"></h4>
                             <p class="content-paragraph"></p>
                             <button class="sendBTTButton btn">Boost</button>
-                        </div>                  
-                    
+                        </div>                                    
                     </div>
+
                     <div id="theory">
                     <h2 class="header">Theories</h2>
-                        <div class="theory-cards">
-                            <div class="card" onclick="expandCard(1)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
-                                </div>
-                            </div>
-                            <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
-                                </div>
-                            </div>
-                            <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card-info" id="card-info">
-                            <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
-                            <h4 class="content-title"></h4>
-                            <p class="content-paragraph"></p>
-                            <button class="sendBTTButton btn">Boost</button>
-                        </div>
+                    <p>No new post shared</p>
                     </div>
+
+
                     <div id="blog">
                     <h2 class="header">Blogs</h2>
-                        <div class="blog-cards">
-                            <div class="card" onclick="expandCard(1)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
-                                </div>
-                            </div>
-                            <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
-                                </div>
-                            </div>
-                            <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
-                                <div class="card-content">
-                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
-                                </div>
-                            </div>
-                        </div>
-                        
-                        <div class="card-info" id="card-info">
-                            <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
-                            <h4 class="content-title"></h4>
-                            <p class="content-paragraph"></p>
-                            <button class="sendBTTButton btn">Boost</button>
-                        </div>
+                    <p>No new post shared</p>
                     </div>
+
+                    
                     <div id="extra">
                     <h2 class="header">Extra</h2>
+                    <p>Updating..</p>
                     </div>
                 </div>
                 </div>
