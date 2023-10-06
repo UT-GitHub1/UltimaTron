@@ -12,14 +12,14 @@
         <div class="admin-panel clearfix">
             <div class="slidebar">
                 <div class="logo">
-                <a href=""></a>
+                <a href="https://ut-github1.github.io/UltimaTron/"></a>
                 </div>
                 <ul>
                 <li><a href="#dashboard" id="targeted">Main</a></li>
-                <li><a href="#challenge">Challenge</a></li>
-                <li><a href="#theory">Theory</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#extra">extra</a></li>
+                <li><a href="#challenge">Challenges</a></li>
+                <li><a href="#theory">Theories</a></li>
+                <li><a href="#blog">Blogs</a></li>
+                <li><a href="#extra">Extra</a></li>
                 </ul>
             </div>
             <div class="main">
@@ -31,44 +31,114 @@
                         <div class="clearfix">
                         <ul class="content">
                             <li>content</li>
-                            <li class="challenge"><span class="count">179</span><a href="">Challenges</a></li>
-                            <li class="blog"><span class="count">13</span><a href="">Blogs</a></li>
-                            <li class="categories"><span class="count">21</span><a href="">categories</a></li>
-                            <li class="tags"><span class="count">305</span><a href="">tags</a></li>
-                        </ul>
-                        <ul class="discussions">
-                            <li>discussions</li>
-                            <li class="comments"><span class="count">353</span><a href="">comments</a></li>
-                            <li class="approved"><span class="count">319</span><a href="">approved</a></li>
-                            <li class="pending"><span class="count">0</span><a href="">pending</a></li>
-                            <li class="spam"><span class="count">34</span><a href="">spam</a></li>
+                            <li class="challenge"><span class="count">4</span><a href="">Challenges</a></li>
+                            <li class="blog"><span class="count">3</span><a href="">Blogs</a></li>
+                            <li class="categories"><span class="count">3</span><a href="">Theories</a></li>
+                            <li class="tags"><span class="count">8</span><a href="">waiting for approval</a></li>
                         </ul>
                         </div>
-                        <p>Theme <a href="">Twenty Eleven</a> with <a href="">3 widgets</a></p>
+                        <p>Project: <a href="https://ut-github1.github.io/UltimaTron/">UltimaTron</a> in <a href="https://forum.trondao.org/t/ultimatron-create-content-collect-upvotes-challenges-theories-blogs/20899">TRON</a></p>
                     </div>
                     <div class="quick-press">
-                        <h4>Quick Press</h4>
+                        <h4>Share</h4>
                         <form action="" method="post">
                         <input type="text" name="title" placeholder="Title"/>
-                        <input type="text" name="content" placeholder="Content"/>
+                        <input type="textarea" name="content" placeholder="Content"/>
                         <input type="text" name="tags" placeholder="Tags"/>
-                        <button type="button" class="save">l</button>
-                        <button type="button" class="delet">m</button>
                         <button type="submit" class="submit" name="submit">Publish</button>
                         </form>
                     </div>
                     </div>
                     <div id="challenge">
                     <h2 class="header">Challenges</h2>
+                    
+                        <div class="challenge-cards">
+                            <div class="card" onclick="expandCard(1)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/ai.jpg');" onclick="expandCard(4)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 4</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-info" id="card-info">
+                            <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
+                            <h4 class="content-title"></h4>
+                            <p class="content-paragraph"></p>
+                            <button class="sendBTTButton btn">Boost</button>
+                        </div>                  
+                    
                     </div>
                     <div id="theory">
-                    <h2 class="header">Theory</h2>
+                    <h2 class="header">Theories</h2>
+                        <div class="theory-cards">
+                            <div class="card" onclick="expandCard(1)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-info" id="card-info">
+                            <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
+                            <h4 class="content-title"></h4>
+                            <p class="content-paragraph"></p>
+                            <button class="sendBTTButton btn">Boost</button>
+                        </div>
                     </div>
                     <div id="blog">
-                    <h2 class="header">Blog</h2>
+                    <h2 class="header">Blogs</h2>
+                        <div class="blog-cards">
+                            <div class="card" onclick="expandCard(1)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;" >Card 1</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/tech-detox.jfif');" onclick="expandCard(2)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 2</h3>
+                                </div>
+                            </div>
+                            <div class="card" style="background-image: url('img/web.jpg');" onclick="expandCard(3)">
+                                <div class="card-content">
+                                    <h3 style="background-color: black; color: white; border-radius: 10px; padding: 3px;">Card 3</h3>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="card-info" id="card-info">
+                            <p class="metamask-address">Your metamask is succesfully connected -- Check the cards</p>
+                            <h4 class="content-title"></h4>
+                            <p class="content-paragraph"></p>
+                            <button class="sendBTTButton btn">Boost</button>
+                        </div>
                     </div>
                     <div id="extra">
-                    <h2 class="header">extra</h2>
+                    <h2 class="header">Extra</h2>
                     </div>
                 </div>
                 </div>
@@ -78,27 +148,6 @@
     
     
     <script>
-        async function checkMetaMaskConnection() {
-            try {
-                await window.ethereum.request({ method: 'eth_requestAccounts' });
-                document.getElementById('content').style.display = 'block';
-            } catch (error) {
-                console.error(error);
-                document.getElementById('content').style.display = 'none';
-                setTimeout(checkMetaMaskConnection, 500);
-            }
-        }
-
-        function continuousCheck() {
-            setInterval(checkMetaMaskConnection, 500);
-        }
-
-        if (typeof window.ethereum !== 'undefined') {
-            checkMetaMaskConnection();
-            continuousCheck();
-        } else {
-            document.querySelector('h1').textContent = 'MetaMask is not installed. Please install MetaMask to use this website.';
-        }
     </script>
     <script src="main.js"></script>
 </body>
