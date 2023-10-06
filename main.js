@@ -93,38 +93,3 @@ function displayCardInfo(cardNumber) {
     cardInfo.querySelector('.content-paragraph').textContent = content;
     cardInfo.querySelector('.boost-button').textContent = boostButtonText;
 }
-
-const sendBTTButton = document.querySelector('.sendBTTButton');
-		
-		let accounts = [];
-		
-		if (typeof window.ethereum !== 'undefined') {
-			ethereum
-				.request({ method: 'eth_requestAccounts' })
-				.then((acc) => {
-					accounts = acc;
-				})
-				.catch((error) => {
-					console.error(error);
-				});
-		}
-		
-		sendBTTButton.addEventListener('click', () => {
-			const donationAmount = 10000; 
-			if (typeof window.ethereum !== 'undefined') {
-				ethereum
-					.request({
-						method: 'eth_sendTransaction',
-						params: [
-							{
-								from: accounts[0],
-								to: '0xC8bE450818D507b3a86E147726401D7fbED3340C',
-								value: `0x${(donationAmount * 1000000000000000000).toString(16)}`,
-								chainId: '0x9A'
-							}
-						]
-					})
-					.then((txHash) => console.log(txHash))
-					.catch((error) => console.error(error));
-			}
-		});
