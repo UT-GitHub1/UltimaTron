@@ -54,17 +54,7 @@ body {
 	right: 20px;
 	-webkit-font-smoothing: antialiased;
 }
-.slidebar li:nth-child(1):before {content: "\63";}
-.slidebar li:nth-child(2):before {content: "\64";}
-.slidebar li:nth-child(3):before {content: "\62";}
-.slidebar li:nth-child(4):before {content: "\65";}
-.slidebar li:nth-child(5):before {content: "\74";}
-.slidebar li:nth-child(6):before {content: "\66";}
-.slidebar li:nth-child(7):before {content: "\67";}
-.slidebar li:nth-child(8):before {content: "\68";}
-.slidebar li:nth-child(9):before {content: "\69";}
-.slidebar li:nth-child(10):before {content: "\6a";}
-.slidebar li:nth-child(11):before {content: "\75";}
+
 
 .slidebar ul a {
 	color: rgb(140,140,140);
@@ -149,17 +139,7 @@ body {
 	margin-right: 10px;
 	-webkit-font-smoothing: antialiased;
 }
-.mainContent div:nth-child(1) h2:before {content: "\63";}
-.mainContent div:nth-child(2) h2:before {content: "\64";}
-.mainContent div:nth-child(3) h2:before {content: "\62";}
-.mainContent div:nth-child(4) h2:before {content: "\65";}
-.mainContent div:nth-child(5) h2:before {content: "\74";}
-.mainContent div:nth-child(6) h2:before {content: "\66";}
-.mainContent div:nth-child(7) h2:before {content: "\67";}
-.mainContent div:nth-child(8) h2:before {content: "\68";}
-.mainContent div:nth-child(9) h2:before {content: "\69";}
-.mainContent div:nth-child(10) h2:before {content: "\6a";}
-.mainContent div:nth-child(11) h2:before {content: "\75";}
+
  
 #dashboard>div {
 	border: 1px solid rgb(235,235,235);
@@ -292,7 +272,7 @@ body {
 	background-color: rgb(214,214,214);
 }
 .logo a:before {
-	content: "A";
+	content: "U";
 	width: 70px;
 	height: 70px;
 	font: 50px/70px helvetica,verdana,sans-serif;
@@ -303,10 +283,6 @@ body {
 	border-radius: 35px;
 	border: 1px solid rgb(210,210,210);
 	display: inline-block;
-	background: -webkit-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
-	background: -moz-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
-	background: -ms-linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
-	background: linear-gradient(top,rgb(255,255,255),rgb(245,245,245));
 }
 .statusbar {
 	position: absolute;
@@ -357,16 +333,6 @@ body {
     justify-content: space-between;
 }
 
-.theory-cards {
-    display: flex;
-    justify-content: space-between;
-}
-
-.blog-cards {
-    display: flex;
-    justify-content: space-between;
-}
-
 .card {
     width: 150px;
     height: 150px;
@@ -379,6 +345,7 @@ body {
     background-size: cover;
     background-position: center;
 }
+
 
 .card:hover {
     transform: scale(1.1);
@@ -402,4 +369,63 @@ body {
 
 .expanded-card h3 {
     margin: 0;
+}
+
+/* Add your existing CSS styles here */
+
+/* Styles for the content form */
+.content-form {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+    margin-top: 20px;
+    max-width: 600px; /* Fix the maximum width */
+    margin: 0 auto; /* Center the form */
+}
+
+.content-form label {
+    font-weight: bold;
+}
+
+.content-form input[type="text"],
+.content-form textarea {
+    width: 100%;
+    padding: 6px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tag {
+    background-color: #007bff;
+    color: #fff;
+    padding: 5px 10px;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.tag.selected {
+    background-color: #0056b3; /* Change the background color when selected */
+    font-weight: bold; /* Make the text bold when selected */
+}
+
+/* Responsive styles for the content form */
+@media (max-width: 768px) {
+    .content-form {
+        padding: 10px;
+    }
+
+    .content-form input[type="text"],
+    .content-form textarea {
+        padding: 5px;
+        margin-bottom: 5px;
+    }
 }
