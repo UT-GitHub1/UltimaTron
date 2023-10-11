@@ -6,11 +6,31 @@
     <title>Auto Connect to MetaMask</title>
     <link rel="stylesheet" href="main.css">
     <style>
-                /* Styles for screens smaller than 768px (typical mobile devices) */
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        #connection-message {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            font-size: 18px;
+        }
+
         @media (max-width: 768px) {
             .admin-panel {
                 width: 100%;
                 margin: 0;
+            }
+
+            #connection-message {
+                font-size: 16px;
             }
             
             .slidebar {
@@ -161,9 +181,33 @@
             </div>
     </div>
 
-    
+    <div id="connection-message">
+        <p>Please connect your MetaMask wallet to view the site content</p>
+    </div>
     
     <script>
+        async function checkMetaMaskConnection() {
+            if (window.ethereum && window.ethereum.isMetaMask) {
+                try {
+                    // Request the user's accounts
+                    const accounts = await window.ethereum.request({ method: 'eth_accounts' });
+
+                    // If accounts are available, MetaMask is connected
+                    if (accounts.length > 0) {
+                        document.getElementById('connection-message').style.display = 'none';
+                        document.getElementById('content').style.display = 'block';
+                    }
+                } catch (error) {
+                    console.error(error);
+                }
+            }
+        }
+
+        // Check MetaMask connection on page load
+        window.addEventListener('load', checkMetaMaskConnection);
+
+        // Check MetaMask connection when the network changes
+        window.ethereum.on('chainChanged', checkMetaMaskConnection);
     </script>
     <script src="main.js"></script>
 </body>
