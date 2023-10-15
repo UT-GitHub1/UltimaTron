@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Auto Connect to MetaMask</title>
+    <title>UltimaTRON</title>
     <link rel="stylesheet" href="main.css">
+    <link rel="stylesheet" href="dark-mode.css">
+    <link rel="shortcut icon" type="image/x-icon" href="UltimaTRON-logos/UltimaTRON-logos.jpeg" />
     <style>
         body {
             display: flex;
@@ -17,7 +19,7 @@
 
         #connection-message {
             background-color: #4CAF50;
-            color: white;
+            color: rgb(95, 95, 95);
             text-align: center;
             padding: 10px;
             font-size: 18px;
@@ -68,16 +70,23 @@
             /* Add styles for larger screens here */
         }
 
-
     </style>
 </head>
 <body>
+    <div class="container-only-for-centering">
+        <div class="darkmode-toggle-wrapper">
+        <input type="checkbox" id="darkmode-toggle" aria-label="dark mode toggle" class="darkmode-toggle-checkbox">
+        <div class="darkmode-toggle-circle">
+        </div>
+        <span class="darkmode-toggle-emoji">🌚</span>
+        <span class="darkmode-toggle-emoji">🌞</span>
+    </div>
     <div id="content" style="display: none;">
         <h1>Ultimatron</h1>
         <div class="admin-panel clearfix">
             <div class="slidebar">
                 <div class="logo" >
-                <a href="https://ut-github1.github.io/UltimaTron/" style="background-image: url('UltimaTRON-logos/UltimaTRON-logos.jpeg');"></a>
+                <a href="#dashboard" style="background-image: url('UltimaTRON-logos/UltimaTRON-logos.jpeg');"></a>
                 </div>
                 <ul>
                 <li><a href="#dashboard" id="targeted">Main</a></li>
@@ -90,22 +99,23 @@
             <div class="main">
                 <div class="mainContent clearfix">
                 <div id="dashboard">
-                    <h2 class="header"><span class="icon"></span>Dashboard</h2>
+                    <h2 class="header" style="color:green;"><span class="icon"></span>Dashboard</h2>
                     <div class="monitor">
                         <h4>Right Now</h4>
                         <div class="clearfix">
                         <ul class="content">
                             <li>content</li>
-                            <li class="challenge"><span class="count">4</span><a href="">Challenges</a></li>
-                            <li class="blog"><span class="count">0</span><a href="">Blogs</a></li>
-                            <li class="categories"><span class="count">0</span><a href="">Theories</a></li>
-                            <li class="tags"><span class="count">8</span><a href="">on_stand_by</a></li>
+                            <li class="challenge"><span class="count">4</span>Challenges</li>
+                            <li class="blog"><span class="count">0</span>Blogs</li>
+                            <li class="categories"><span class="count">0</span>Theories</li>
+                            <li class="tags"><span class="count">3</span>on_stand_by</li>
                         </ul>
                         </div>
                         <p>Project: <a href="https://ut-github1.github.io/UltimaTron/">UltimaTron</a> in <a href="https://forum.trondao.org/t/ultimatron-create-content-collect-upvotes-challenges-theories-blogs/20899">TRON</a></p>
                     </div>
+                    
                     <div class="content-form">
-                        <h2>Publish Content</h2>
+                        <h2 style="color:green;">Publish Content</h2>
                         <form action="#" method="post" id="content-form">
                             <label for="title">Title:</label>
                             <input type="text" name="title" id="title" placeholder="Enter a title" required>
@@ -129,7 +139,7 @@
 
 
                     <div id="challenge">
-                    <h2 class="header">Challenges</h2>
+                    <h2 class="header" style="color:green;">Challenges</h2>
                         <div class="challenge-cards">
                             <div class="card" onclick="expandCard(1)">
                                 <div class="card-content">
@@ -161,19 +171,19 @@
                     </div>
 
                     <div id="theory">
-                    <h2 class="header">Theories</h2>
+                    <h2 class="header" style="color:green;">Theories</h2>
                     <p>No new post shared</p>
                     </div>
 
 
                     <div id="blog">
-                    <h2 class="header">Blogs</h2>
+                    <h2 class="header" style="color:green;">Blogs</h2>
                     <p>No new post shared</p>
                     </div>
 
                     
                     <div id="extra">
-                    <h2 class="header">Extra</h2>
+                    <h2 class="header" style="color:green;">Extra</h2>
                     <p>Updating..</p>
                     </div>
                 </div>
@@ -210,5 +220,6 @@
         window.ethereum.on('chainChanged', checkMetaMaskConnection);
     </script>
     <script src="main.js"></script>
+    <script src="dark-mode.js"></script>
 </body>
 </html>
