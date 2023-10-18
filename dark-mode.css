@@ -18,14 +18,21 @@
     --background-color: #060606eb;
     --color-text: #ebe8e8;
   }
-
-  
   
   body.lightmode {
     --background-color: #ffffff;
     --color-text: #060606e2;
   }
-  
+
+  body.lightmode {
+    --background-color: #ffffff;
+    --color-text: #060606e2;
+  }
+
+  body.darkmode h1 {
+      color: white;
+  }
+
   
   body {
     background: var(--background-color);
